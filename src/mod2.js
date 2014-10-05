@@ -1,5 +1,11 @@
-angular.module('mod1', ['mod2'])
+/**
+ * Controllers and directives
+ */
+angular.module('mod2', ['mod1'])
 
+/**
+ * Attaches the `getItem` helper to the scope
+ */
 .controller('MyCtrl', ['$scope', 'service1', function($scope, service1) {
   $scope.getItem = function() {
     service1.get($scope.itemId).then(function(item) {
@@ -8,6 +14,9 @@ angular.module('mod1', ['mod2'])
   };
 }])
 
+/**
+ * Does something special with the DOM
+ */
 .directive('directive1', function() {
   return {
     restrict: 'E',

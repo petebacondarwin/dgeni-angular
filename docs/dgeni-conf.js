@@ -35,10 +35,18 @@ module.exports = new Package('dgeni-example', [
   // Add a folder to search for our own templates to use when rendering docs
   templateFinder.templateFolders.unshift(path.resolve(__dirname, 'templates'));
 
-  // Specify how to match docs to templates.
-  // In this case we just use the same static template for all docs
-  templateFinder.templatePatterns.unshift('common.template.html');
+  templateFinder.templatePatterns = [
+    '${ doc.template }',
+    '${ doc.id }.${ doc.docType }.template.md',
+    '${ doc.id }.template.md',
+    '${ doc.docType }.template.md',
+    'common.template.md'
+  ];
 
   // Specify where the writeFilesProcessor will write our generated doc files
   writeFilesProcessor.outputFolder  = 'build';
+})
+
+.config(function(debugDumpProcessor) {
+  debugDumpProcessor.$enabled = true;
 });

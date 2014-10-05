@@ -1,3 +1,6 @@
+/**
+ * Contains helper services
+ */
 angular.module('mod1', [])
 
 .factory('service1', ['$http', function($http) {
