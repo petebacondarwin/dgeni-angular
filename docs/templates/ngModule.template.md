@@ -1,17 +1,17 @@
-## {{ doc.name }} Module
+## {$ doc.name $} Module
 
-{{ doc.description }}
+{$ doc.description $}
 
 ### Dependencies
 {% for dependency in doc.dependencies %}
-* {{ dependency }}
+* {$ dependency $}
 {%- endfor %}
 
-{% for componentType, components in doc.components %}
-{% if components.length %}
-### {{ componentType }}
-{% for component in components %}
-* {{ component.name }} - {{ component.description }}
+{% for groupName, group in doc.groups %}
+{% if group.children.length %}
+### [{$ group.title $}]({$ group.path $})
+{% for component in group.children %}
+* {$ component.name $} - {$ component.description $}
 {%- endfor %}
 {%- endif %}
 {%- endfor %}
