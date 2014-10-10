@@ -46,10 +46,10 @@ module.exports = new Package('dgeni-example', [
 
   templateFinder.templatePatterns = [
     '${ doc.template }',
-    '${ doc.id }.${ doc.docType }.template.md',
-    '${ doc.id }.template.md',
-    '${ doc.docType }.template.md',
-    'common.template.md'
+    '${ doc.id }.${ doc.docType }.template.html',
+    '${ doc.id }.template.html',
+    '${ doc.docType }.template.html',
+    'common.template.html'
   ];
 
   // Specify where the writeFilesProcessor will write our generated doc files

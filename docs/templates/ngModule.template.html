@@ -1,0 +1,16 @@
+<h2>{$ doc.name $} Module</h2>
+
+<p>{$ doc.description $}</p>
+
+{% include "partials/dependencies.template.html" %}
+
+{% for groupName, group in doc.groups %}
+{% if group.children.length %}
+<h3><a href="{$ group.path $}">{$ group.title $}</a></h3>
+<ul>
+{% for component in group.children %}
+<li>{$ component.name $} - {$ component.description $}</li>
+{%- endfor %}
+</ul>
+{%- endif %}
+{%- endfor %}

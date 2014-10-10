@@ -1,0 +1,7 @@
+<h2>{$ doc.title $} in {$ doc.module.name $}</h2>
+
+<ul>
+{% for component in doc.children %}
+<li>{$ component.name $} - {$ component.description $}</li>
+{%- endfor %}
+</ul>
