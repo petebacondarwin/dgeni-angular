@@ -16,4 +16,8 @@ gulp.task('clean', function(done) {
   del(['./build'], done);
 });
 
+gulp.task('watch', ['default'], function() {
+  return gulp.watch(['docs/**/*', 'src/**/*'], ['default']);
+});
+
 gulp.task('default', ['dgeni']);
