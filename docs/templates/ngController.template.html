@@ -1,5 +1,9 @@
+{% extends 'base.template.html' %}
+
+{% block body %}
 <h2>{$ doc.name $} Controller</h2>
 
 <p>{$ doc.description $}</p>
 
 {% include "partials/dependencies.template.html" %}
+{% endblock %}

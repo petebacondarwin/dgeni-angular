@@ -1,16 +1,24 @@
-<h2>{$ doc.name $} Module</h2>
+{% extends 'base.template.html' %}
 
-<p>{$ doc.description $}</p>
+{% block body %}
+<div layout-padding>
+  <h2>{$ doc.name $} Module</h2>
 
-{% include "partials/dependencies.template.html" %}
+  <p>{$ doc.description $}</p>
+  {% include "partials/dependencies.template.html" %}
+</div>
 
 {% for groupName, group in doc.groups %}
 {% if group.children.length %}
+<material-divider></material-divider>
 <h3>{$ group | relativeLink(doc, group.title) $}</h3>
 <ul>
 {% for component in group.children %}
-<li>{$ component | relativeLink(doc) $} - {$ component.description $}</li>
+<li>{$ component | relativeLink(doc) $}
+    {%- if component.description %} - {$ component.description $}{% endif -%}
+</li>
 {%- endfor %}
 </ul>
 {%- endif %}
 {%- endfor %}
+{% endblock %}

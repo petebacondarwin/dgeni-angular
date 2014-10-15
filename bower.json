@@ -1,0 +1,20 @@
+{
+  "name": "dgeni-angular",
+  "version": "0.0.0",
+  "homepage": "https://github.com/petebacondarwin/dgeni-angular",
+  "authors": [
+    "Peter Bacon Darwin <pete@bacondarwin.com>"
+  ],
+  "license": "Apache 2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.4.0"
+  }
+}
