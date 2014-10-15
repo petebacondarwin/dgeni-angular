@@ -13,10 +13,10 @@ module.exports = new Package('dgeni-example', [
 
 // Configure our dgeni-example package. We can ask the Dgeni dependency injector
 // to provide us with access to services and processors that we wish to configure
-.config(function(log, readFilesProcessor, templateFinder, templateEngine, writeFilesProcessor) {
+.config(function(log, readFilesProcessor, writeFilesProcessor) {
 
   // Set logging level
-  log.level = 'debug';
+  log.level = 'info';
 
   // Specify the base path used when resolving relative paths to source and output files
   readFilesProcessor.basePath = path.resolve(__dirname, '..');
@@ -32,14 +32,18 @@ module.exports = new Package('dgeni-example', [
     }
   ];
 
+  // Specify where the writeFilesProcessor will write our generated doc files
+  writeFilesProcessor.outputFolder  = 'build';
+
+})
+
+.config(function(templateFinder, templateEngine) {
 
   // Nunjucks and Angular conflict in their template bindings so change the Nunjucks
   templateEngine.config.tags = {
     variableStart: '{$',
     variableEnd: '$}'
   };
-
-
 
   // Add a folder to search for our own templates to use when rendering docs
   templateFinder.templateFolders.unshift(path.resolve(__dirname, 'templates'));
@@ -51,11 +55,4 @@ module.exports = new Package('dgeni-example', [
     '${ doc.docType }.template.html',
     'common.template.html'
   ];
-
-  // Specify where the writeFilesProcessor will write our generated doc files
-  writeFilesProcessor.outputFolder  = 'build';
-})
-
-.config(function(debugDumpProcessor) {
-  debugDumpProcessor.$enabled = true;
 });
