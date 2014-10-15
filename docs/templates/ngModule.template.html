@@ -6,10 +6,10 @@
 
 {% for groupName, group in doc.groups %}
 {% if group.children.length %}
-<h3><a href="{$ group.path $}">{$ group.title $}</a></h3>
+<h3>{$ group | relativeLink(doc, group.title) $}</h3>
 <ul>
 {% for component in group.children %}
-<li>{$ component.name $} - {$ component.description $}</li>
+<li>{$ component | relativeLink(doc) $} - {$ component.description $}</li>
 {%- endfor %}
 </ul>
 {%- endif %}

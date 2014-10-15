@@ -2,6 +2,6 @@
 
 <ul>
 {% for component in doc.children %}
-<li>{$ component.name $} - {$ component.description $}</li>
+<li>{$ component | relativeLink(doc) $} - {$ component.description $}</li>
 {%- endfor %}
 </ul>

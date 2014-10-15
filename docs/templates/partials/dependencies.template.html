@@ -1,6 +1,8 @@
 <h3>Dependencies</h3>
 <ul>
-{% for dependency in doc.dependencies %}
-<li>{$ dependency $}</li>
+{%- for dependency in doc.dependencies %}
+  <li>
+  {$ dependency | relativeLink(doc) $}
+  </li>
 {%- endfor %}
 </ul>

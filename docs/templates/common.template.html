@@ -3,4 +3,4 @@
 
 <p>{$ doc.description $}</p>
 
-<a href="{$ doc.parent.path $}">Go Up</a>
+{$ doc.parent | relativeLink(doc, 'Go Up') $}
