@@ -1,9 +1,12 @@
 {% extends 'base.template.html' %}
 
 {% block body %}
-<h2>{$ doc.name $} Service</h2>
+<h2>{$ doc.name $}</h2>
+<h3>service in {$ doc.module | relativeLink(doc) $}</h3>
 
-<p>{$ doc.description $}</p>
+<div>
+  {$ doc.description | marked $}
+</div>
 
 {% include "partials/dependencies.template.html" %}
 {% endblock %}

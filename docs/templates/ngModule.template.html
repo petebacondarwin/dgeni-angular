@@ -1,10 +1,12 @@
 {% extends 'base.template.html' %}
 
 {% block body %}
-<div layout-padding>
+<div>
   <h2>{$ doc.name $} Module</h2>
 
-  <p>{$ doc.description $}</p>
+  <div>
+  {$ doc.description | marked $}
+  </div>
   {% include "partials/dependencies.template.html" %}
 </div>
 
