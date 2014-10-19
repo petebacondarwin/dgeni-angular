@@ -16,10 +16,10 @@ gulp.task('dgeni', function() {
 gulp.task('bower', function() {
   var bowerTask = bower.commands.install();
   bowerTask.on('log', function (result) {
-    log('bower:', result.id, result.data.endpoint.name);
+    console.log('bower:', result.id, result.data.endpoint.name);
   });
   bowerTask.on('error', function(error) {
-    log(error);
+    console.log(error);
   });
   return bowerTask;
 });
@@ -37,4 +37,4 @@ gulp.task('watch', ['default'], function() {
   return gulp.watch(['docs/**/*', 'src/**/*'], ['default']);
 });
 
-gulp.task('default', ['dgeni']);
+gulp.task('default', ['dgeni', 'assets']);
