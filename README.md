@@ -20,4 +20,7 @@ npm install -g http-server
 http-server build/
 ```
 
+(**It is important to run it from the `build` folder in order that
+the links to CSS files work correctly**)
+
 Then browser to http://localhost:8080/modules/app
