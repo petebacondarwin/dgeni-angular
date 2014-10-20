@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var Dgeni = require('dgeni');
 var del = require('del');
 var bower = require('bower');
+var runSequence = require('run-sequence');
 
 gulp.task('dgeni', function() {
   try {
@@ -37,4 +38,6 @@ gulp.task('watch', ['default'], function() {
   return gulp.watch(['docs/**/*', 'src/**/*'], ['default']);
 });
 
-gulp.task('default', ['dgeni', 'assets']);
+gulp.task('default', function(cb) {
+  runSequence('clean', ['dgeni', 'assets'], cb);
+});
