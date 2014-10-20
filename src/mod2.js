@@ -25,7 +25,7 @@ angular.module('mod2', ['mod1'])
     },
     templateUrl: 'some/template/url',
     link: function(scope, element) {
-
+      var div = angular.element('<div></div>');
     }
   };
 });
