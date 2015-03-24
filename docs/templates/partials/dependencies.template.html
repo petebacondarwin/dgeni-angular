@@ -1,12 +1,21 @@
 {% if doc.dependencies.length -%}
 
-<h3>Dependencies</h3>
-<ul>
-{%- for dependency in doc.dependencies %}
-  <li>
-  {$ dependency | relativeLink(doc) $}
-  </li>
-{%- endfor %}
-</ul>
-
+<section>
+	<md-subheader>Dependencies</md-subheader>
+	<md-list>
+	{%- for dependency in doc.dependencies %}
+		<md-item>
+			<md-item-content layout-sm="column" layout-align-sm="space-around start">
+				<div class="md-tile-left" flex="15">
+					{$ dependency | relativeLink(doc) $}
+				</div>
+				<div class="md-tile-content">
+					{$ dependency.description $}
+				</div>
+			</md-item-content>
+			<md-divider></md-divider>
+		</md-item>
+	{%- endfor %}
+	</md-list>
+</section>
 {%- endif %}

@@ -3,11 +3,24 @@
 {% block body %}
 <h2>{$ doc.title $} in {$ doc.module.name $}</h2>
 
-<ul>
 {% for component in doc.children %}
-<li>{$ component | relativeLink(doc) $}
-    {%- if component.description %} - {$ component.description $}{% endif -%}
-</li>
+<section>
+	<md-list>
+	{% for component in doc.children %}
+		<md-item>
+			<md-item-content layout-sm="column" layout-align-sm="space-around start">
+				<div class="md-tile-left" flex="15">
+					{$ component | relativeLink(doc) $}
+				</div>
+				<div class="md-tile-content">
+					{%- if component.description %} {$ component.description $}{% endif -%}
+				</div>
+			</md-item-content>
+			<md-divider></md-divider>
+		</md-item>
+		{%- endfor %}
+	<md-list>
+</section>
 {%- endfor %}
 </ul>
 {% endblock %}
