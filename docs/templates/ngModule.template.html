@@ -1,26 +1,35 @@
 {% extends 'base.template.html' %}
 
 {% block body %}
-<div>
-  <h2>{$ doc.name $} Module</h2>
-
-  <div>
-  {$ doc.description | marked $}
-  </div>
-  {% include "partials/dependencies.template.html" %}
-</div>
+<h2>{$ doc.name $} Module</h2>
+<p>
+	{$ doc.description | marked $}
+</p>
+{% include "partials/dependencies.template.html" %}
 
 {% for groupName, group in doc.groups %}
 {% if group.children.length %}
-<material-divider></material-divider>
-<h3>{$ group | relativeLink(doc, group.title) $}</h3>
-<ul>
-{% for component in group.children %}
-<li>{$ component | relativeLink(doc) $}
-    {%- if component.description %} - {$ component.description $}{% endif -%}
-</li>
-{%- endfor %}
-</ul>
+<section>
+	<md-subheader>
+		{$ group.title $}
+		{$ group | relativeLink(doc, '<md-button>View list of ' + group.title + '</md-button>') $}
+	</md-subheader>
+	<md-list>
+	{% for component in group.children %}
+		<md-item>
+			<md-item-content layout-sm="column" layout-align-sm="space-around start">
+				<div class="md-tile-content">
+					{$ component | relativeLink(doc) $}
+				</div>
+				<div class="md-tile-content">
+					{%- if component.description %} {$ component.description $}{% endif -%}
+				</div>
+			</md-item-content>
+			<md-divider></md-divider>
+		</md-item>
+		{%- endfor %}
+	<md-list>
+</section>
 {%- endif %}
 {%- endfor %}
 {% endblock %}
