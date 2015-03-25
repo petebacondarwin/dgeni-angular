@@ -11,14 +11,14 @@
 {% if group.children.length %}
 <section>
 	<md-subheader>
-		{$ group.title $} -
-		{$ group | relativeLink(doc, '<md-button>List of ' + group.title + '</md-button>') $}
+		{$ group.title $}
+		{$ group | relativeLink(doc, '<md-button>View list of ' + group.title + '</md-button>') $}
 	</md-subheader>
 	<md-list>
 	{% for component in group.children %}
 		<md-item>
 			<md-item-content layout-sm="column" layout-align-sm="space-around start">
-				<div class="md-tile-left" flex="15">
+				<div class="md-tile-content">
 					{$ component | relativeLink(doc) $}
 				</div>
 				<div class="md-tile-content">

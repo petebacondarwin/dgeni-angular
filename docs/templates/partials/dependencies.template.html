@@ -6,11 +6,8 @@
 	{%- for dependency in doc.dependencies %}
 		<md-item>
 			<md-item-content layout-sm="column" layout-align-sm="space-around start">
-				<div class="md-tile-left" flex="15">
-					{$ dependency | relativeLink(doc) $}
-				</div>
 				<div class="md-tile-content">
-					{$ dependency.description $}
+					{$ dependency | relativeLink(doc) $}
 				</div>
 			</md-item-content>
 			<md-divider></md-divider>
