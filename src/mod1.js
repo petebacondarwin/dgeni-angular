@@ -1,4 +1,19 @@
 /**
+ * @ngdoc module
+ * @name mod1
+ * @module mod1
+ *
+ * @description
+ *
+ * Contains helper services
+ */
+
+/**
+ * @ngdoc service
+ * @name service1
+ * @module mod1
+ * @description
+ *
  * Contains helper services
  */
 angular.module('mod1', [])
