@@ -4,7 +4,7 @@ var Package = require('dgeni').Package;
 
 
 module.exports = new Package('dgeni-example', [
-  require('dgeni-packages/angularjs'),
+  require('dgeni-packages/ngdoc'),
   require('dgeni-packages/jsdoc'),
   require('dgeni-packages/nunjucks')
 ])
@@ -32,16 +32,16 @@ module.exports = new Package('dgeni-example', [
     variableEnd: '$}'
   };
 
-  templateFinder.templateFolders
-      .unshift(path.resolve(__dirname, 'templates'));
+  // templateFinder.templateFolders
+  //     .unshift(path.resolve(__dirname, 'templates'));
 
-  templateFinder.templatePatterns = [
-    '${ doc.template }',
-    '${ doc.id }.${ doc.docType }.template.html',
-    '${ doc.id }.template.html',
-    '${ doc.docType }.template.html',
-    'common.template.html'
-  ];
+  // templateFinder.templatePatterns = [
+  //   '${ doc.template }',
+  //   '${ doc.id }.${ doc.docType }.template.html',
+  //   '${ doc.id }.template.html',
+  //   '${ doc.docType }.template.html',
+  //   'common.template.html'
+  // ];
 })
 
 
